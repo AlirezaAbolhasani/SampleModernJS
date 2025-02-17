@@ -1,10 +1,11 @@
 const formExpense = document.querySelector("#formExpense");
 const formDesc = document.querySelector("#desc");
 const formAmountInput = document.querySelector("#inputAmount");
-const frmTotalAmnt = document.querySelector("#totalAmnt")
+const frmTotalAmnt = document.querySelector("#totalAmnt");
+const frmExpenseBody = document.querySelector("#expanseBody");
 
 //Array
-const totalAmntArr = [];
+let totalAmntArr = [];
 
 formExpense.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -16,18 +17,36 @@ formExpense.addEventListener("submit",(e)=>{
     totalAmntArr.push({desc,amount});
     formAmountInput.value ="";
     formDesc.value = "";
-    addToArray();
+    frmExpenseBody.innerHTML = "";
+
+    showInPage();
+
 
 });
 
-const addToArray = ()=>{
+
+const showInPage = ()=>{
     
     let totalAmnt_ = 0 ;
-
+    let body ='';
     for( let i = 0 ; i < totalAmntArr.length; i++){
         totalAmnt_ += parseFloat(totalAmntArr[i].amount);
     }
 
-    frmTotalAmnt.textContent = totalAmnt_.toLocaleString("fa-IR");
 
+
+    for(let j = 0 ; j < totalAmntArr.length ; j++){
+        body += `<tr><td> ${totalAmntArr[j].desc}</td>
+                 <td>${parseFloat(totalAmntArr[j].amount).toLocaleString("fa-IR")}</td>
+                 <td> <button onclick="removeExpense(${j})">....</button></td></tr>
+        `;
+    }
+
+    frmTotalAmnt.textContent = totalAmnt_.toLocaleString("fa-IR");
+    frmExpenseBody.innerHTML = body;
 }
+
+const removeExpense=(index)=> {
+    totalAmntArr = totalAmntArr.filter(( _ , i ) => i !== index);
+    showInPage();
+};
