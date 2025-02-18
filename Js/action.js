@@ -30,7 +30,7 @@ const showInPage = ()=>{
     let totalAmnt_ = 0 ;
     let body ='';
     for( let i = 0 ; i < totalAmntArr.length; i++){
-        totalAmnt_ += parseFloat(totalAmntArr[i].amount);
+        totalAmnt_ += +totalAmntArr[i].amount;
     }
 
 
