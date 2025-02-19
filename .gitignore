@@ -1,2 +1,11 @@
-# ignore all directories with the name test
-node_modul/
+# نادیده گرفتن فایل‌های باینری
+*.exe
+*.dll
+package-lock.json
+package.json
+
+# نادیده گرفتن فایل‌های لاگ
+*.log
+
+# نادیده گرفتن پوشه tmp
+/node_modules/
