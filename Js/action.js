@@ -33,8 +33,6 @@ const showInPage = ()=>{
         totalAmnt_ += +totalAmntArr[i].amount;
     }
 
-
-
     for(let j = 0 ; j < totalAmntArr.length ; j++){
         body += `<tr><td> ${totalAmntArr[j].desc}</td>
                  <td>${parseFloat(totalAmntArr[j].amount).toLocaleString("fa-IR")}</td>
