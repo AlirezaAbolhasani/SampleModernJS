@@ -3,7 +3,7 @@
 *.dll
 package-lock.json
 package.json
-Readme.text
+readme.text
 
 # نادیده گرفتن فایل‌های لاگ
 *.log
